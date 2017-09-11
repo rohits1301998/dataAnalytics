@@ -6,9 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<style>
-			h1{
+			#head{
 				text-align: center;
+				margin-top: 10px;
 			}
+			
 			#form2{
 				display:none;
 			}
@@ -16,9 +18,9 @@
 		</style>
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		
+		
 <script type="text/javascript">
 	function getSubject(sem){
 		//alert("lol");
@@ -48,16 +50,35 @@
 </script>
 	</head>
 	<body>
+		
+		<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="#">Student Analytics</a>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Selection<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/logout/">Logout {{user}}</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
 		<div class="container">
-			<h1>Welcome!{{user}}<br/>
-							<a href="/logout/">logout {{user}}</a></h1>
+			<h1 id="head">Welcome!{{user}}<br/></h1>
 
 
 
      <button class="btn btn-info" id="btn1" onclick="switchForms(document.getElementById('form1'),document.getElementById('btn1'))">Enter Data</button>
 		    <button  class="btn btn-success" id="btn2" onclick="switchForms(document.getElementById('form2'),document.getElementById('btn2'))">View Stats</button>
+			
 			<form action="/marks/" method="get" id="form1">
-				<div class="form-group">
+				<br><div class="form-group">
 					<label for="sem-list">Select Semester:</label>
 					<select class="form-control" name="sem" id="sem-list" onchange="getSubject(this.value)">
 						<option disabled selected>Select Semester</option>
@@ -133,8 +154,10 @@
 			</form>
 		</div>
 
-
-		<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 	</body>
 </html>
