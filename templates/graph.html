@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+  <title>Report</title>
+   <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+   <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+<style media="screen">
+  body{
+    text-align:center;
+  }
+</style>
+   </script>
+  </head>
+  <body>
+    <!-- Fusion Charts will render here-->
+    <div id="chart-1"></div>
+    <!-- dumping JavaScript code here -->
+    {{ output|safe }}
+  </body>
+</html>

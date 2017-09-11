@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<style>
+			h1{
+				text-align: center;
+			}
+			#form2{
+				display:none;
+			}
+
+		</style>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function getSubject(sem){
+		//alert("lol");
+		var subList=document.getElementById('subject-list');
+    var subList1=document.getElementById('subject-list1');
+		subList.innerHTML="<option disabled selected>Select Subject</option>";
+    subList1.innerHTML="<option disabled selected>Select Subject</option>";
+		semArray=[['DLDA','ECCF','DS','MATHS','OOPM','DIS'],
+		['TCS','CG','MATHS','AOA','COA','DBMS'],['OS','SOOAD','CN','MP','BCE','WTL']];
+		for(var i=0;i<semArray[sem].length;i++){
+   subList.innerHTML+='<option value='+semArray[sem][i]+'>'+semArray[sem][i]+'</option>';
+	 subList1.innerHTML+='<option value='+semArray[sem][i]+'>'+semArray[sem][i]+'</option>';
+		}
+
+	}
+
+	function switchForms(x,y){
+		var forms=document.getElementsByTagName('form');
+		forms[0].style.display="none";
+		forms[1].style.display="none";
+		document.getElementById('btn1').style.backgroundColor="#449D44";
+		document.getElementById('btn2').style.backgroundColor="#449D44";
+		x.style.display="block";
+		y.style.backgroundColor="#31B0D5";
+
+	}
+</script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Welcome!{{user}}<br/>
+							<a href="/logout/">logout {{user}}</a></h1>
+
+
+
+     <button class="btn btn-info" id="btn1" onclick="switchForms(document.getElementById('form1'),document.getElementById('btn1'))">Enter Data</button>
+		    <button  class="btn btn-success" id="btn2" onclick="switchForms(document.getElementById('form2'),document.getElementById('btn2'))">View Stats</button>
+			<form action="/marks/" method="get" id="form1">
+				<div class="form-group">
+					<label for="sem-list">Select Semester:</label>
+					<select class="form-control" name="sem" id="sem-list" onchange="getSubject(this.value)">
+						<option disabled selected>Select Semester</option>
+						<option value="0">Sem 3</option>
+						<option value="1">Sem 4</option>
+						<option value="2">Sem 5</option>
+						<option value="3">Sem 6</option>
+						<option value="4">Sem 7</option>
+						<option value="5">Sem 8</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="class-list">Select Class:</label>
+					<select class="form-control" id="class-list" name="class">
+						<option value="A">A</option>
+						<option value="B">B</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="class-list">Enter Batch Year:</label>
+					<input class="form-control" type="number" name="batch-year"  placeholder="Enter batch year"/ required  />
+				</div>
+
+				<div class="form-group">
+					<label for="subject-list">Select Subject:</label>
+					<select class="form-control" id="subject-list" name="subject">
+						<option >Select subject</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</form>
+
+			<form action="/graph/" method="get" id="form2">
+				<div class="form-group">
+					<label for="sem-list">Select Semester:</label>
+					<select class="form-control" name="sem" id="sem-list1" onchange="getSubject(this.value)">
+						<option disabled selected>Select Semester</option>
+						<option value="0">Sem 3</option>
+						<option value="1">Sem 4</option>
+						<option value="2">Sem 5</option>
+						<option value="3">Sem 6</option>
+						<option value="4">Sem 7</option>
+						<option value="5">Sem 8</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="class-list">Select Class:</label>
+					<select class="form-control" id="class-list1" name="class">
+						<option value="A">A</option>
+						<option value="B">B</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="class-list">Enter Batch Year:</label>
+					<input class="form-control" type="number" name="batch-year"  placeholder="Enter batch year"/ required  />
+				</div>
+
+				<div class="form-group">
+					<label for="subject-list">Select Subject:</label>
+					<select class="form-control" id="subject-list1" name="subject">
+						<option >Select subject</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</form>
+		</div>
+
+
+		<!-- jQuery first, then Tether, then Bootstrap JS. -->
+
+	</body>
+</html>
